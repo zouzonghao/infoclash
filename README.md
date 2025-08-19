@@ -2,7 +2,7 @@
 
 InfoClash 是一个用于收集、存储和可视化 Clash 网络连接流量数据的工具。它通过定期从 Clash API 获取连接信息，将其存入 SQLite 数据库，并提供一个 Web 界面进行数据查询、汇总和分析。
 
-[demo](/demo.avif)
+![demo](/demo.avif)
 
 ## ✨ 功能特性
 
