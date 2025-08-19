@@ -1,0 +1,41 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  infoclash:
+    # 使用您在 Docker Hub 上构建和推送的镜像
+    # 确保将 'latest' 替换为您需要的特定版本标签
+    image: sanqi37/infoclash:latest
+    container_name: infoclash
+    restart: unless-stopped
+    user: "0:0"
+    # 端口映射: <主机端口>:<容器端口>
+    # WEB_PORT 环境变量也应设置为容器端口
+    ports:
+      - "8081:8081"
+
+    # 数据卷挂载，用于持久化 SQLite 数据库文件
+    # 这会在当前目录下创建一个 'infoclash_data' 文件夹来存储数据库
+    volumes:
+      - ./infoclash_data:/app/data
+
+    # 环境变量配置
+    # 请根据您的实际情况修改这些值
+    environment:
+      # Clash API URL, e.g., http://<clash_host>:<port>/connections
+      - CLASH_API_URL=http://192.168.1.1:9090/connections
+      # Clash API Token (secret)
+      - CLASH_API_TOKEN=123456
+
+      # 数据库文件路径 (重要: 路径指向容器内挂载的数据卷)
+      - DATABASE_PATH=/app/data/clash_traffic.db
+      - ARCHIVE_DATABASE_PATH=/app/data/clash_traffic_archive.db
+
+      # 数据库写入间隔（分钟）
+      - DB_WRITE_INTERVAL_MINUTES=3
+
+      # 域名后缀白名单，逗号分隔
+      - HOST_SUFFIX_WHITELIST=googlevideo.com
+
+      # Web 服务在容器内监听的端口
+      - WEB_PORT=8081
