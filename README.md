@@ -99,6 +99,27 @@ HOST_SUFFIX_WHITELIST=googlevideo.com,ad.com
 ```bash
 ./infoclash
 ```
+## 🚀 docker部署
+
+```yaml
+version: '3.8'
+
+services:
+  infoclash:
+    image: sanqi37/infoclash:latest
+    container_name: infoclash
+    restart: unless-stopped
+    user: "0:0"
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./infoclash_data:/app/data
+    environment:
+      - CLASH_API_URL=http://192.168.1.1:9090/connections
+      - CLASH_API_TOKEN=123456
+      - DB_WRITE_INTERVAL_MINUTES=3
+      - HOST_SUFFIX_WHITELIST=googlevideo.com
+```
 
 ---
 
