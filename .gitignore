@@ -1,0 +1,126 @@
+################################################################################
+# .gitignore for Vue+Go Project
+#
+# Frontend: frontend/ (Vue 3, Vite)
+# Backend:  backend/  (Go, SQLite)
+################################################################################
+
+
+# 操作系统生成文件 (Operating System Files)
+# 忽略 macOS, Windows 和 Linux 系统自动生成的元数据和垃圾文件。
+#
+## macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+.Trashes
+._*
+.Spotlight-V100
+.fseventsd
+Icon?
+
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+
+# IDE 和编辑器配置文件 (IDE & Editor Configuration)
+# 忽略常用开发工具生成的项目配置、缓存和历史记录。
+#
+.idea/
+.vscode/
+.history/
+.atom/
+.komodotools/
+*.swp
+*~
+*.bak
+*.sublime-project
+*.sublime-workspace
+
+# 提示: 如果你的团队希望共享 VS Code 的特定配置（如推荐插件、调试设置），
+# 可以取消注释下面的行，以将它们加入版本控制。
+# !.vscode/extensions.json
+# !.vscode/launch.json
+# !.vscode/settings.json
+# !.vscode/tasks.json
+
+
+# 前端依赖和构建产物 (Frontend: Vue / Vite / Node.js)
+# 位于 "frontend/" 目录下
+#
+## Node.js 依赖模块 (非常重要，必须忽略)
+frontend/node_modules/
+
+## Vite/Vue 构建输出目录
+frontend/dist/
+
+## Vite 缓存
+frontend/.vite/
+
+## 依赖包管理器日志文件
+frontend/npm-debug.log*
+frontend/npm-error.log*
+frontend/yarn-error.log
+frontend/pnpm-debug.log*
+
+## 其他工具缓存和报告
+frontend/.parcel-cache/
+frontend/coverage/
+
+## 前端日志文件
+frontend/*.log
+
+
+# 后端依赖和构建产物 (Backend: Go)
+# 位于 "backend/" 目录下
+#
+## Go 编译生成的可执行文件
+backend/bin/
+backend/main
+backend/infoclash
+backend/*.exe
+backend/*.dll
+backend/*.so
+backend/*.dylib
+
+## Go 测试文件
+backend/*.test
+
+## Go 构建缓存 (如果生成在项目目录中)
+backend/.go-build/
+
+
+# 数据库文件 (Database Files)
+# 数据库文件包含运行时数据，不应提交到版本库。
+#
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+backend/*.db
+backend/*.db-journal
+backend/*.sqlite
+backend/*.sqlite3
+
+
+# 环境变量文件 (Environment Variables)
+# 这些文件通常包含密码、API密钥等敏感信息，严禁提交！
+#
+.env
+.env.*
+!.env.example
+!.env.sample
+
+## 特定于 Vite/Create React App 的本地环境变量
+.env.local
+.env.*.local
+
+
+# 项目特定的临时文件或备份
+#
+frontend_bak*
+infoclash
+
